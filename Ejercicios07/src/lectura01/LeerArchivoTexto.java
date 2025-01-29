@@ -71,9 +71,9 @@ public class LeerArchivoTexto {
                 String linea = entrada.nextLine();
                 List<String> lista = Arrays.asList(linea.split(";"));
                 ArrayList<String> linea_partes = new ArrayList<>(lista);
-                // for (int i = 0; i < linea_partes.size(); i++) {
+                for (int i = 0; i < linea_partes.size(); i++) {
                     System.out.println(linea_partes.get(2));
-                // }
+                }
                 System.out.println("-----------------------------------");
 
             } // fin de while
@@ -108,7 +108,7 @@ public class LeerArchivoTexto {
                         + "Promedio de notas: %s\n", 
                         linea_partes.get(0),
                         linea_partes.get(1));
-                
+                        
                 System.out.println("-----------------------------------");
 
             } // fin de while

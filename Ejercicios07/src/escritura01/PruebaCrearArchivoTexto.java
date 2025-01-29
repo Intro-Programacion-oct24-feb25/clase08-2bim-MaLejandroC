@@ -31,5 +31,5 @@ public class PruebaCrearArchivoTexto {
  * ************************************************************************
  * (C) Copyright 1992-2007 por Deitel & Associates, Inc. y * Pearson Education,
  * Inc. Todos los derechos reservados. *
- ************************************************************************
+ * ***********************************************************************
  */
