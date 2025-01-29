@@ -32,23 +32,62 @@ public class Principal1 {
             numeroNotasArribaPromedio = funcion02(filaNotas, 
                     promedio_paralelo);
             tipoNotas = funcion03(filaNotas);
+            
+            String username = funcionUsername(nombre,apellido);
+            
+            String notasas = funcionBajoAlto(filaNotas); 
+            
             mensajeFinal = String.format("%s%s\n", mensajeFinal, 
                     presentarReporte(nombre, apellido, tipoNotas, 
-                    promedioEstudiante, numeroNotasArribaPromedio));
+                    promedioEstudiante, numeroNotasArribaPromedio,username,notasas));
         }
         CrearArchivoTexto.agregarRegistros(mensajeFinal);
-
+        
+        
+        /* CONVERTIMOS LA CADENA FINAL EN UN ARCHIVO*/
+        
+    }
+    
+    
+    public static String  funcionBajoAlto (int[] nota){
+        String cadena;
+        int baja=nota[0];
+        int alta=nota[0];
+        for (int i = 0; i < nota.length ; i++) {
+            if(baja > nota[i]){
+                baja = nota[i];
+        }
+        for ( i = 0; i < nota.length; i++){
+            if (alta < nota[i] ){
+                alta = nota [i];
+            }
+            }
+        }
+        cadena = String.format("Nota mas alta: %d\nNota "
+                + "mas baja:%d\n",alta,baja);
+        return cadena;
+    }
+    public static String funcionUsername(String nomb, String apee){
+        String username;
+        
+        String inicial = nomb.substring(0,1);
+        
+        username = String.format("%s.%s@utpl.edu.ec",inicial,apee);
+        
+        return username;
     }
     
     public static String presentarReporte(String nom, String ap, String notas, 
-            double prom, int numeroNotas){
+            double prom, int numeroNotas, String username, String notasas){
         String reporte = String.format("Nombres: %s\n"
                 + "Apellidos: %s\n"
+                + "Username: %s\n"
                 + "Con notas: \n"
-                + "%s\n"
+                + "%s"
                 + "Promedio - %2f\n"
-                + "Número de notas arriba del promedio: %d\n\n",
-                nom, ap, notas, prom, numeroNotas);
+                + "Número de notas arriba del promedio: %d\n"
+                + "%s\n",
+                nom, ap,username, notas, prom, numeroNotas,notasas);
         
         return reporte;
     }
